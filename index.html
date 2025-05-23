@@ -2,190 +2,134 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ashwaq's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz App</title>
   <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
     body {
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Navbar */
-    nav {
-      position: fixed;
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 1rem 2rem;
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      z-index: 100;
+      height: 100vh;
     }
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #0066cc;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav ul li {
-      font-weight: 500;
-    }
-
-    /* Sections */
-    section {
-      padding: 100px 20px 60px; /* top padding accounts for fixed nav */
-      max-width: 900px;
-      margin: auto;
-    }
-    #hero {
-      text-align: center;
-      padding-top: 140px;
-      padding-bottom: 80px;
-    }
-    #hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    #hero p {
-      font-size: 1.2rem;
-      color: #666;
-    }
-    #hero img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-top: 20px;
-      object-fit: cover;
-      border: 4px solid #0066cc;
-    }
-
-    /* Projects grid */
-    #projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .project-card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .project-card img {
+    .quiz-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      max-width: 400px;
     }
-    .project-card h3 {
-      margin-bottom: 10px;
-      color: #0066cc;
+    .question {
+      font-size: 20px;
+      margin-bottom: 20px;
     }
-    .project-card p {
-      flex-grow: 1;
-      margin-bottom: 15px;
-      color: #555;
+    .option {
+      background: #e0e7ff;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      margin: 5px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: left;
     }
-    .project-links a {
-      margin-right: 10px;
-      font-weight: 600;
-      color: #0066cc;
+    .option:hover {
+      background: #c7d2fe;
     }
-
-    /* Footer */
-    footer {
-      background: #0066cc;
+    #next-btn {
+      margin-top: 20px;
+      padding: 10px;
+      background: #4f46e5;
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-
-    /* Responsive */
-    @media(max-width: 600px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.7rem;
-      }
-      nav {
-        padding: 1rem;
-      }
-      #hero h1 {
-        font-size: 2rem;
-      }
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      cursor: pointer;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Ashwaq</div>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="quiz-box">
+    <div id="question" class="question"></div>
+    <div id="options"></div>
+    <button id="next-btn">Next</button>
+  </div>
 
-  <section id="hero">
-    <h1>Hello, I’m Ashwaq</h1>
-    <p>Welcome to my portfolio website! I’m a passionate developer skilled in web design and coding.</p>
-    <img src="https://avatars.githubusercontent.com/u/ashwaq3005" alt="Ashwaq's Profile Photo" />
-  </section>
+  <script>
+    const questions = [
+      {
+        question: "What does HTML stand for?",
+        options: ["Hyper Text Markup Language", "Hot Mail", "How to Make Landing", "Hyperloop Machine Language"],
+        answer: "Hyper Text Markup Language"
+      },
+      {
+        question: "What is the output of 2 + '2' in JavaScript?",
+        options: ["4", "22", "undefined", "NaN"],
+        answer: "22"
+      },
+      {
+        question: "Which tag is used to include JavaScript in HTML?",
+        options: ["<script>", "<js>", "<javascript>", "<code>"],
+        answer: "<script>"
+      }
+    ];
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <img src="https://via.placeholder.com/300x140.png?text=Project+1" alt="Project 1" />
-      <h3>Project One</h3>
-      <p>A brief description of project one, explaining what it does and the technologies used.</p>
-      <div class="project-links">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">Live Demo</a>
-      </div>
-    </div>
-    <div class="project-card">
-      <img src="https://via.placeholder.com/300x140.png?text=Project+2" alt="Project 2" />
-      <h3>Project Two</h3>
-      <p>A brief description of project two, showcasing your skills and tools involved.</p>
-      <div class="project-links">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">Live Demo</a>
-      </div>
-    </div>
-  </section>
+    let currentQuestion = 0;
+    let score = 0;
 
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <p>You can reach me at <a href="mailto:your.email@example.com">your.email@example.com</a> or follow me on social media.</p>
-  </section>
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const nextBtn = document.getElementById("next-btn");
 
-  <footer>
-    &copy; 2025 Ashwaq. All rights reserved.
-  </footer>
+    function showQuestion() {
+      const q = questions[currentQuestion];
+      questionEl.textContent = q.question;
+      optionsEl.innerHTML = "";
+      q.options.forEach(option => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.classList.add("option");
+        btn.onclick = () => selectAnswer(btn, q.answer);
+        optionsEl.appendChild(btn);
+      });
+      nextBtn.style.display = "none";
+    }
+
+    function selectAnswer(selectedBtn, correctAnswer) {
+      const buttons = document.querySelectorAll(".option");
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent === correctAnswer) {
+          btn.style.background = "#34d399"; // green
+        } else if (btn === selectedBtn) {
+          btn.style.background = "#f87171"; // red
+        }
+      });
+      if (selectedBtn.textContent === correctAnswer) {
+        score++;
+      }
+      nextBtn.style.display = "block";
+    }
+
+    nextBtn.onclick = () => {
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        showQuestion();
+      } else {
+        showScore();
+      }
+    };
+
+    function showScore() {
+      questionEl.textContent = `Quiz completed! Your score: ${score} / ${questions.length}`;
+      optionsEl.innerHTML = "";
+      nextBtn.style.display = "none";
+    }
+
+    showQuestion();
+  </script>
 </body>
 </html>
