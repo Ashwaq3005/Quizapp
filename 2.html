@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ashwaq's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #0066cc;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-weight: 500;
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 20px 60px; /* top padding accounts for fixed nav */
+      max-width: 900px;
+      margin: auto;
+    }
+    #hero {
+      text-align: center;
+      padding-top: 140px;
+      padding-bottom: 80px;
+    }
+    #hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    #hero p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    #hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-top: 20px;
+      object-fit: cover;
+      border: 4px solid #0066cc;
+    }
+
+    /* Projects grid */
+    #projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #0066cc;
+    }
+    .project-card p {
+      flex-grow: 1;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .project-links a {
+      margin-right: 10px;
+      font-weight: 600;
+      color: #0066cc;
+    }
+
+    /* Footer */
+    footer {
+      background: #0066cc;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+      nav {
+        padding: 1rem;
+      }
+      #hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="logo">Ashwaq</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <h1>Hello, I’m Ashwaq</h1>
+    <p>Welcome to my portfolio website! I’m a passionate developer skilled in web design and coding.</p>
+    <img src="https://avatars.githubusercontent.com/u/ashwaq3005" alt="Ashwaq's Profile Photo" />
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/300x140.png?text=Project+1" alt="Project 1" />
+      <h3>Project One</h3>
+      <p>A brief description of project one, explaining what it does and the technologies used.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Live Demo</a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="https://via.placeholder.com/300x140.png?text=Project+2" alt="Project 2" />
+      <h3>Project Two</h3>
+      <p>A brief description of project two, showcasing your skills and tools involved.</p>
+      <div class="project-links">
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Live Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>You can reach me at <a href="mailto:your.email@example.com">your.email@example.com</a> or follow me on social media.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Ashwaq. All rights reserved.
+  </footer>
+</body>
+</html>
